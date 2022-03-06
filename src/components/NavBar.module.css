@@ -1,0 +1,17 @@
+.NavBar{
+    display: flex;
+    justify-content: space-around;
+}
+.sectionFirstList,.sectionSecondList{
+    display: flex;
+    justify-content: space-around;
+}
+.sectionFirstList li,.sectionSecondList li{
+   padding:10%;
+   list-style-type: none;
+}
+.search{
+    border: none;
+    background-color: #0c111b;
+    text-decoration:double
+}
