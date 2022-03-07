@@ -1,26 +1,30 @@
+import React,{useState,useEffect} from 'react'
 import classes from './NavBar.module.css';
 import menu from '../Images/menu.svg'
+import login from '../Images/login.png'
+import disney from '../Images/Disney (2).svg'
+import List from '../listItems/List'
 const NavBar =()=>{
+    const [focus,setFocus]=useState(false);
+    const focusHandler=()=>{setFocus(true)};
     return (<nav className={classes.NavBar}>
-        <div className={classes.sectionFirst}>
-            <ul className={classes.sectionFirstList}>
+           <ul className={classes.sectionFirstList}>
                 <li><img src={menu} alt="menu" className={classes.menu}/></li>
-                <li>TV</li>
-                <li>Movies</li>
-                <li>Sports</li>
-                <li>Disney+</li>
-                <li>Kids</li>
-                <li></li>
+                <img src={disney} alt="menu" className={classes.menuLogo}/>
+                <List/>
             </ul>
-            </div>
-        <div className={classes.sectionSecond}>
             <ul className={classes.sectionSecondList}>
                 <li>
-                    <form><input type="search" placeholder="Search" className={classes.search}></input></form>
+                    <form><input type="search" placeholder="Search" className={classes.search} onFocus={focusHandler}></input></form>
                 </li>
-                <li>Auth</li>
+                <li className={classes.profile}><img src={login} alt="menu" className={classes.menu}/>
+                <ul className={classes.hiddenProfile }>
+            <li>WatchList</li>
+            <li>My Account</li>
+            <li>Logout</li>
+        </ul>
+                </li>
             </ul>
-            </div>
     </nav>)
 };
 export default NavBar;
