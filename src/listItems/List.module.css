@@ -1,0 +1,77 @@
+.list{
+    display: flex;
+    color:rgb(207, 200, 200);
+}
+.list li{
+    padding-right: 20px;
+}
+.list li:hover{
+    color:white;
+    cursor: pointer;
+}
+.hiddenTv{
+    display:none;    
+    position: absolute;
+    top:10vh;
+    left:16.5vw;
+    font-size: 18px;
+    background-color:#131c2e;
+    z-index: 1;
+    border-radius: 10px; 
+ box-shadow: 1px 1px 1px black;
+ padding:0px;
+}
+.tv:hover .hiddenTv{
+    display: block;
+
+}
+.hiddenMovies{
+    display:none;
+    position: absolute;
+    top:10vh;
+    left:23vw;
+    font-size: 18px;
+    background-color:#131c2e;
+    z-index: 1;
+    width: max-content;  
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+    padding:0px;
+}
+
+.movies:hover .hiddenMovies{
+    display: block;
+    cursor: pointer;
+}
+.hiddenSports{
+    display:none;
+    position: absolute;
+    top:10vh;
+    left:29vw;
+    font-size: 18px;
+    background-color:#131c2e;
+    z-index: 1;
+    width: max-content;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px black;
+    padding:0px;
+}
+
+.sports:hover .hiddenSports{
+    display: block;
+    cursor: pointer;
+}
+.hiddenMovies li, .hiddenSports li,.hiddenTv li{
+    padding:13px;
+}
+.hiddenMovies li:hover,.hiddenSports li:hover,.hiddenTv li:hover{
+    background-color: black;
+    /* padding-bottom:10%; */
+}
+
+@media screen and (min-width: 320px) and (max-width:780px) {
+    .list{
+        display: none;
+    }
+    
+}
