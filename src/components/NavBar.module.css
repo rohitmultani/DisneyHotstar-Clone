@@ -26,8 +26,20 @@
 .hiddenProfile{
     display:none;    
     position: absolute;
-    top:10vh;
-    left:16.5vw;
+    top:11vh;
+    right:5vw;
+    font-size: 18px;
+    background-color:#131c2e;
+    z-index: 1;
+    border-radius: 10px; 
+ box-shadow: 1px 1px 1px black;
+ padding:0px;
+}
+.hiddenMenu{
+    display:none;    
+    position: absolute;
+    top:11vh;
+    left:3vw;
     font-size: 18px;
     background-color:#131c2e;
     z-index: 1;
@@ -39,15 +51,27 @@
     display: block;
 
 }
-.hiddenProfile li{
+.menuBar:hover .hiddenMenu{
+    display: block;
+
+}
+.hiddenProfile li,.hiddenMenu li{
     padding:13px;
 }
 
 .menu{
     height: 30px;
 }
+.hiddenProfile li:hover,.hiddenMenu li:hover{
+    background-color: black;
+    font-weight: 700;
+}
 @media screen and (min-width: 320px) and (max-width:780px) {
 .search{
     width: 100px;
+}
+.hiddenProfile{
+right:-2vw;
+top:12vh;
 }
 }
