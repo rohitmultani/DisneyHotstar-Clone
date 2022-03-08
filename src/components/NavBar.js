@@ -5,6 +5,7 @@ import genre from '../Images/genre.svg'
 import lang from '../Images/language.svg'
 import channel from '../Images/channel.svg'
 import login from '../Images/login.png'
+import search from '../Images/search.svg'
 import disney from '../Images/Disney (2).svg'
 import List from '../listItems/List'
 const NavBar =()=>{
@@ -16,7 +17,7 @@ const NavBar =()=>{
                 <li className={classes.menuBar}><img src={menu} alt="menu" className={classes.menu}/>
                 <ul className={classes.hiddenMenu }>
             <li>
-                <img src={channel} alt="channel"/>
+                <img src={search} alt="channel"/>
                 Channels</li>
             <li><img src={lang} alt="lang"/>Languages</li>
             <li><img src={genre} alt="genre"/>Genre</li>
@@ -27,7 +28,9 @@ const NavBar =()=>{
             </ul>
             <ul className={classes.sectionSecondList}>
                 <li>
-                    <form><input type="search" placeholder="Search" className={classes.search} onFocus={focusHandler}></input></form>
+                    <form><input type="search" placeholder="Search" className={classes.search}/>
+                    <img src={search} alt="search" className={classes.searchIcon}></img>
+                </form>
                 </li>
                 <li className={classes.profile}><img src={login} alt="menu" className={classes.menu}/>
                 {loggedIn?(<ul className={classes.hiddenProfile }>
