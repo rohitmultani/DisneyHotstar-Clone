@@ -38,7 +38,6 @@
     position: relative;
     right:2vw;
     top:0.2vh;
-    z-index: 2;
 }
 .hiddenProfile{
     display:none;    
@@ -66,7 +65,9 @@
 }
 .profile:hover .hiddenProfile{
     display: block;
-
+}
+.profile:hover{
+cursor: pointer;
 }
 .menuBar:hover .hiddenMenu{
     display: block;
