@@ -1,0 +1,38 @@
+.modalBar{
+    position: absolute;
+    top: 50%;
+    transform: translate(-65%, 10%);
+    height: 65vh;
+    width: 40vw;
+    background-color:#111a2b;
+    border-radius: 10px;
+    z-index:5
+}
+.cancelImage{
+    padding: 2%;
+    text-align: right;
+}
+.modalText{
+    margin: 10%;
+    padding: 2%;
+}
+.modalSign{
+    margin: 10%;
+    padding: 2%;
+    background-color:#192a4b ;
+    color:rgb(92, 92, 243);
+    text-align: center;
+    border-radius: 10px;
+    font-weight: 600;
+    border:2px solid darkblue
+}
+@media screen and (min-width: 320px) and (max-width:780px){
+    .modalBar{
+        top:0;
+        left:0;
+        transform: translate(0);
+        height: 100vh;
+        width: 100vw;
+    }
+    
+}

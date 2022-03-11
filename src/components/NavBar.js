@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import classes from "./NavBar.module.css";
 import menu from "../Images/menu.svg";
 import login from "../Images/login.png";
@@ -7,13 +7,26 @@ import disney from "../Images/Disney (2).svg";
 import List from "../listItems/List";
 import HiddenMenu from "./HiddenComponents/HiddenMenu";
 import HiddenProfile from "./HiddenComponents/HiddenProfile";
-import HiddenLogin from "./HiddenComponents/HiddenLogin";
+import Login from "./Login/Login";
+import {auth} from '../Firebase'
+import LoginModal from "./modal/LoginModal";
+import BackDrop from "./modal/BackDrop";
 const NavBar = () => {
-  const [focus, setFocus] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  const focusHandler = () => {
-    setFocus(true);
+  const [modal, setModal] = useState(false);
+  auth.onAuthStateChanged((user)=>{
+    if(user){
+      return setLoggedIn(true);
+    }
+    setLoggedIn(false);
+  })
+  const modalHandler=()=>{
+    setModal(prevState=>(!prevState));
   };
+  const logoutHandler=(props)=>{
+setLoggedIn(props)
+  }
+  
   return (
     <nav className={classes.NavBar}>
       <ul className={classes.sectionFirstList}>
@@ -35,14 +48,10 @@ const NavBar = () => {
             <img src={search} alt="search" className={classes.searchIcon}></img>
           </form>
         </li>
-        <li className={classes.profile}>
-          <img src={login} alt="menu" className={classes.menu} />
-          {loggedIn ? (
-            <HiddenProfile />
-          ) : (
-            <HiddenLogin/>
-          )}
-        </li>
+        {loggedIn?(<li className={classes.profile}> <img src={login} alt="menu" className={classes.menu} />
+          <HiddenProfile logoutHandler={logoutHandler}/></li>):<Login modal={modalHandler}/>}
+          {modal&& <LoginModal modalOpen={modalHandler}/>}
+          {modal&& <BackDrop backdropOpen={modalHandler}/>}
       </ul>
     </nav>
   );
