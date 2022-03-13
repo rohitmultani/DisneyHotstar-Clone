@@ -4,6 +4,8 @@ import arrow from "../../Images/arrow.svg";
 import classes from "./LoginModal.module.css";
 const Otp = (props) => {
   const [disable,setDisable]=useState(true);
+  const [otpNum,setOtpNum]=useState();
+  // const [Continue,setContinue]=useState();
   const otp=useRef({otp1: "",
   otp2: "",
   otp3: "",
@@ -16,8 +18,8 @@ const Otp = (props) => {
     otp.current={...otp.current,...newOtp}
     if(valueNew==="otp6")
     {
-      const otpAuth=otp.current.otp1 +otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
-    console.log(otpAuth);
+      const otpAuth=otp.current.otp1+otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
+    setOtpNum(otpAuth);
     if(otpAuth.length===6){
       setDisable(false)
     }
@@ -41,8 +43,11 @@ const Otp = (props) => {
   };
   const otpSubmit=(event)=>{
     event.preventDefault();
-    const otpAuth=otp.current.otp1 +otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
-    console.log(otpAuth);
+    // const otpAuth=otp.current.otp1 +otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
+    // console.log(otpAuth);.
+    console.log(otpNum)
+    props.Continue(true)
+    props.password(otpNum)
 
   };
 
