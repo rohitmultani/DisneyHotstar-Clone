@@ -1,5 +1,6 @@
 import React, { Fragment, useState,useEffect,useRef} from "react";
 import cancel from "../../Images/cancel.svg";
+import firebase from "firebase/app";
 import arrow from "../../Images/arrow.svg";
 import classes from "./LoginModal.module.css";
 const Otp = (props) => {
@@ -46,6 +47,20 @@ const Otp = (props) => {
     // const otpAuth=otp.current.otp1 +otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
     // console.log(otpAuth);.
     console.log(otpNum)
+    window.confirmationResult = confirmationResult;
+      const code =otpNum;
+        console.log(code)
+        confirmationResult
+          .confirm(code)
+          .then((result) => {
+            const user = result.user;
+            props.modalOpen(false);
+            console.log("ok");
+            console.log(user.phoneNumber);
+           })
+          .catch((error) => {
+            console.log("not");
+          });
     props.Continue(true)
     props.password(otpNum)
 
