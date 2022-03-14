@@ -31,20 +31,20 @@ const PhoneModal = (props) => {
       .auth()
       .signInWithPhoneNumber(phoneNum, appVerifier)
       .then((confirmationResult) => {
-        console.log("sms sent");
-        console.log(props.password);
         window.confirmationResult = confirmationResult;
-       const code =window.prompt("enter otp");
-        console.log(code)
-        confirmationResult
-          .confirm(code)
-          .then((result) => {
-            const user = result.user;
-            console.log("ok");
-           })
-          .catch((error) => {
-            console.log("not");
-          });
+      //  const code =window.prompt("enter otp");
+      //   console.log(code)
+      //   confirmationResult
+      //     .confirm(code)
+          // .then((result) => {
+          //   const user = result.user;
+          //   props.modalOpen(false);
+          //   console.log("ok");
+          //   console.log(user.phoneNumber);
+          //  })
+          // .catch((error) => {
+          //   console.log("not");
+          // });
       })
       .catch((error) => {
         console.log("not sent");
@@ -53,8 +53,7 @@ const PhoneModal = (props) => {
   const checkHandler = (event) => {
     const mobNum = "+91"+event.target.value;
     setPhoneNum(mobNum);
-    if (mobNum.trim() === "") {
-      console.log(true)
+    if (event.target.value=== "") {
       props.check(false);
     } else if (mobNum.length === 13) setDisable(false);
     else {
@@ -97,7 +96,7 @@ const PhoneModal = (props) => {
         // onSubmit={onSignInSubmit}
       >
   
-        {!load?<span>CONTINUE</span>:<span>Loading...</span>}
+        {!load?<span>CONTINUE</span>:<span>Sending OTP</span>}
       </button>
       <div className={classes.description} id="description">
         By Proceeding you agree to the
