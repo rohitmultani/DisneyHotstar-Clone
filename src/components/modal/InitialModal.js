@@ -3,12 +3,15 @@ import { auth,provider } from "../../Firebase";
 import cancel from "../../Images/cancel.svg";
 import classes from "./LoginModal.module.css"
 const InitialModal=(props)=>{
-
+const [profName,setprofname]=useState("")
     const LoginHandler=()=>{
         auth.signInWithPopup(provider)
       .then((res)=>{
-        console.log(res.additionalUserInfo.profile.name);
-        props.modalOpen(false);
+        
+        props.prof(res.additionalUserInfo.profile.name);
+        setTimeout(()=>{
+          props.modalOpen(false);
+        },1400)
       })
       .catch((err)=>{
         console.log(err)
