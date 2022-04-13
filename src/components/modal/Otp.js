@@ -6,7 +6,8 @@ import classes from "./LoginModal.module.css";
 const Otp = (props) => {
   const [disable,setDisable]=useState(true);
   const [otpNum,setOtpNum]=useState();
-  // const [Continue,setContinue]=useState();
+  const [loading,setLoading]=useState(false)
+  const [errMesaage,setErrMessage]=useState("")
   const otp=useRef({otp1: "",
   otp2: "",
   otp3: "",
@@ -44,31 +45,37 @@ const Otp = (props) => {
   };
   const otpSubmit=(event)=>{
     event.preventDefault();
+    setLoading(true)
     // const otpAuth=otp.current.otp1 +otp.current.otp2+otp.current.otp3+otp.current.otp4+otp.current.otp5+otp.current.otp6;
     // console.log(otpAuth);.
     console.log(otpNum)
-    window.confirmationResult = confirmationResult;
+    // window.confirmationResult = confirmationResult;
       const code =otpNum;
         console.log(code)
-        confirmationResult
+        window.confirmationResult
           .confirm(code)
           .then((result) => {
             const user = result.user;
-            props.modalOpen(false);
-            console.log("ok");
-            console.log(user.phoneNumber);
+            setLoading(false)
+            // setVerify(true)
+            // props.modalOpen(false);
+            setTimeout(()=>{props.modalOpen(false)},1400)
+            props.userDetails(user.phoneNumber)
+            
            })
           .catch((error) => {
-            console.log("not");
+          
+            console.log(error.message)
+            setErrMessage(error.message)
+            setTimeout(()=>{props.prev(false)},1200)
+            // props.prev(true)
+            
           });
-    props.Continue(true)
     props.password(otpNum)
 
   };
 
-  const prevHandler=()=>{
-    props.check(false);
-  }
+  
   return (
     <Fragment>
       <div className={classes.imagesState}>
@@ -76,7 +83,7 @@ const Otp = (props) => {
         <img src={cancel} alt="cancel" onClick={()=>props.modalOpen(false)}></img>
       </div>
       <div className={classes.modalText}>
-        Enter the 6-digit code sent to +91******7990
+        {`Enter the 6-digit code sent to +91******`+props.phoneNum}
       </div>
       <div className={classes.modalOtp}>
         <input
@@ -130,8 +137,9 @@ const Otp = (props) => {
         ></input>
       </div>
       <button type="submit" className={classes.btn} onClick={otpSubmit} disabled={disable}>
-        CONTINUE
+      {loading? <span>Verifying...</span>:<span>Verify OTP</span>}
       </button>
+  <div className={classes.errBlock}>{errMesaage}</div>
     </Fragment>
   );
 };
