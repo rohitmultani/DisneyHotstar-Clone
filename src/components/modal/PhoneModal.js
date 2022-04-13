@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState,useEffect } from "react";
 import firebase from "firebase/app";
 
 import cancel from "../../Images/cancel.svg";
@@ -7,9 +7,10 @@ import classes from "./LoginModal.module.css";
 const PhoneModal = (props) => {
   const [disable, setDisable] = useState(true);
   const [phoneNum, setPhoneNum] = useState();
+  const [last4, setLast4] = useState();
   const [load,setLoad]=useState(false);
   const setUpRecaptcha = () => {
-    setLoad(true);
+      setLoad(true)
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign", {
       size: "invisible",
       callback: (response) => {
@@ -25,6 +26,7 @@ const PhoneModal = (props) => {
   const onSignInSubmit = (event) => {
     event.preventDefault();
     setUpRecaptcha();
+    props.digitLast(last4)
     const appVerifier = window.recaptchaVerifier;
 
     firebase
@@ -52,6 +54,8 @@ const PhoneModal = (props) => {
   };
   const checkHandler = (event) => {
     const mobNum = "+91"+event.target.value;
+    const shrinkNum=mobNum.slice(9,13)
+    setLast4(shrinkNum);
     setPhoneNum(mobNum);
     if (event.target.value=== "") {
       props.check(false);
@@ -101,7 +105,7 @@ const PhoneModal = (props) => {
       <div className={classes.description} id="description">
         By Proceeding you agree to the
         <span> Terms of use</span> and <span>Privacy policy</span>
-        <div id="sign"></div>
+        <div id="sign" className={classes.recapta}></div>
       </div>
     </Fragment>
   );
