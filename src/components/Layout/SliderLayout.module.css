@@ -1,0 +1,17 @@
+.SliderLayout{
+    margin: auto;
+    /* left: 10; */
+    height: 67vh;
+    width:95vw;
+    /* border:1px solid red; */
+    background-color: #070b13;
+    border-radius: 15px;
+    z-index: 1
+}
+@media screen and (min-width: 320px) and (max-width:780px){
+   
+    .SliderLayout{
+        height: 40vh;
+    }
+
+}
