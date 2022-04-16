@@ -1,0 +1,25 @@
+.Layer2{
+    display: flex;
+    position: absolute;
+    width:95vw;
+    height:40vh;
+    /* border:1px solid green; */
+    margin-left:26px;
+    z-index: -1;
+    /* padding-top: 20px; */
+}
+.Latest{
+    font-size:30px;
+    font-weight: 530;
+    margin:1% 0% 0% 2%;
+}
+@media screen and (min-width: 320px) and (max-width:780px){
+    
+   .Layer2{
+       margin-left: 10px;
+       /* margin: auto; */
+   }
+   .Latest{
+       font-size: 25px;
+   }
+}
