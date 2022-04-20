@@ -1,0 +1,22 @@
+.pageName{
+    font-size:20px;
+    font-weight: 600;
+    margin-left:3%;
+    margin-top: 2%;
+}
+.containerList{
+    /* display: flex;
+    justify-content: space-between;
+    /* flex-wrap: wrap; */
+     margin-left:3%; 
+    margin-top: 2%; 
+    display: grid;
+    grid-row-gap: 10px;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+@media screen and (min-width: 320px) and (max-width:780px){
+    
+    .containerList{
+        grid-template-columns: 1fr 1fr;
+    }
+}
