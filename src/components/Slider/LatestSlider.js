@@ -46,14 +46,16 @@ function SamplePrevArrow2(props) {
 }
 
 const LatestSlider = (props) => {
+  const checkHandler=()=>{
+    console.log(props.movies)
+    // console.log("2")
+  }
   var settings = {
     dots: false,
     infinite: false,
     speed: 300,
     slidesToShow: 8,
     slidesToScroll: 8,
-    autoplay: true,
-    autoplaySpeed: 3000,
     swipeToSlide: true,
     cssEase: "linear",
     nextArrow: <SampleNextArrow2 />,
@@ -75,48 +77,24 @@ const LatestSlider = (props) => {
   };
 
   return (
-    <div>
-      <div className={classes.Latest}>Latest & Trending</div>
+    <div className={classes.LatestBox}>
+      <div className={classes.Latest} onClick={checkHandler}>Latest & Trending</div>
       <Slider {...settings} className={classes.Layer2}>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
-        <div>
-          <LatestLayer />
-        </div>
+      
+
+        {props.movies.map((movie)=>(
+           <div key={movie.id}>
+           <LatestLayer
+           id={movie.id}
+          //  key={movie.id}
+           title={movie.title}
+           image={movie.image}
+           detail={movie.detail}/>
+          
+         </div>
+        ))}
+        
+      
       </Slider>
     </div>
   );
