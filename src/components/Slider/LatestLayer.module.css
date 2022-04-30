@@ -15,27 +15,46 @@
     display:block;
     cursor: pointer;
     position:relative;
-    bottom:150px;
+    bottom:120px;
+    text-align: left;
     left:0;
+
 }
 .SingleBox:hover .batImg{
     transform: scale(1.3);
 }
 .Explane{
-    font-size: 14px;
+    font-size: 12px;
     overflow: hidden;
     height: 10vh;
+    width: 10vw;
 }
 .watchlist{
-    font-size: 14px;
+    margin-top:5%;
+    font-size: 13px;
+    padding: 3%;
+}
+.Title{
+    font-size:13px;
+    padding:1%;
+}
+.Genre{
+    font-size: 10px;
+    padding: 1%;
+}
+.watchlist:hover{
+    font-weight: 600;
+    background-color: rgba(185, 176, 176, 0.443);
 }
 .batImg:hover{
     cursor: pointer;
-    opacity: 10;
-    z-index: 20;
+    opacity: 1;
+    z-index: 10;
     transform: scale(1.3);
+    box-shadow:4px 4px 10px black;
     /* transform: scaleZ(1.3); */
 }
+
 @media screen and (min-width: 320px) and (max-width:780px){
     
     .batImg{
@@ -46,4 +65,10 @@
         transform: scale(1);
     }
 
+    .SingleBox:hover .hiddenInfo{
+        display:none;    
+    }
+    .SingleBox:hover .batImg{
+        transform: scale(1);
+    }
 }
