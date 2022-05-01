@@ -4,6 +4,7 @@ import WatchListContext from '../../Store/WatchList-context';
 const HiddenAbout=(props)=>{
     const WatchCtx=useContext(WatchListContext);
     const removeHandler=()=>{
+        console.log(props.id)
         WatchCtx.removeMovies({
             id:props.id
         })
