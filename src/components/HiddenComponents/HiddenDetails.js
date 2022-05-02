@@ -17,7 +17,8 @@ const HiddenDetails=(props)=>{
             // Explane:ExplaneRef.current.value,
             // amt:12   
             id:props.id,
-            title:"batman"
+            title:props.title,
+            image:props.image
         })
         //   console.log(WatchCtx.movies.map((movies)=>{console.log("2")}))
     }   
