@@ -1,6 +1,8 @@
 .modalBar{
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    top: 10%;
+    /* position: absolute;
+    top: 50%; */
     transform: translate(-65%, 10%);
     height: 65vh;
     width: 40vw;
