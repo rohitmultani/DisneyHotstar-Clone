@@ -60,7 +60,7 @@ const LatestSlider = (props) => {
     cssEase: "linear",
     nextArrow: <SampleNextArrow2 />,
     prevArrow: <SamplePrevArrow2 />,
-    rtl: true,
+  
     responsive: [
       {
         breakpoint: 720,
