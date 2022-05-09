@@ -28,14 +28,15 @@ function SampleNextArrow(props) {
 const SliderMain=(props)=>{
     var settings = {
         dots: true,
-        infinite: false,
-        speed: 100,
-        slidesToShow: 2,
+        infinite: true,
+        speed: 1000,
+        slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 3000,
+        autoplaySpeed: 5000,
         swipeToSlide: true,
         fade: true,
+        pauseOnHover: true,
         cssEase: "linear",
         // dots:false,
         nextArrow: <SampleNextArrow />,
@@ -43,11 +44,19 @@ const SliderMain=(props)=>{
       };
     return(
 <Slider {...settings} className={classes.slide}>
-    <Layer1 title={"TheBatman"} />
-    <Layer1 title={"SpiderMan"}/>
-    <Layer1 title={"JurasicPark"}/>
-    <Layer1 title={"HarryPotter"}/>
-    <Layer1 title={"GodZilla"}/>
+  
+{props.movies.map((movie)=>(
+           <div key={movie.id}>
+           <Layer1
+           id={movie.id}
+          //  key={movie.id}
+          genre={props.genre}
+           title={movie.title}
+           image={movie.image}
+           detail={movie.detail}/>
+          
+         </div>
+        ))}
    
 </Slider>
 
