@@ -9,7 +9,7 @@ const Design2 =(props)=>{
               <div className={classes.SingleBox}> 
             <img src={imAddress} className={classes.im}></img>
             <div className={classes.hiddenInfo}>
-    <HiddenAbout title={props.title} id={props.id}/>
+    <HiddenAbout title={props.title} id={props.id} detail={props.detail } name={props.name}/>
 </div>
 </div>
 </LandScape>
