@@ -1,24 +1,45 @@
 import SmallLayout from "../Layout/SmallLayout";
-import classes from './LatestLayer.module.css';
-import Batman from "../../Images/batman.webp"
+import classes from "./LatestLayer.module.css";
+import found from "../../Images/found.jpg";
+import { useContext ,memo} from "react";
 import HiddenDetails from "../HiddenComponents/HiddenDetails";
-const LatestLayer=(props)=>{
-    const imAddress=`http://image.tmdb.org/t/p/w500/${props.image}`
-    return(
-        <SmallLayout>
-            <div className={classes.SingleBox}> 
-                
-<img src={imAddress} className={classes.batImg}></img>
-<div className={classes.hiddenInfo}>
-    <HiddenDetails 
-    id={props.id}
-    title={props.title}
-    detail={props.detail}
-    image={props.image}
-    />
-</div>
-            </div>
-        </SmallLayout>
-    )
-}
-export default LatestLayer;
+import PlayListContext from "../../Store/PlayList-context";
+const LatestLayer = (props) => {
+  const PlayCtx = useContext(PlayListContext);
+  const addHandler = (event) => {
+    PlayCtx.addMovies({
+      id: props.id,
+      title: props.title,
+      name: props.name,
+      image: props.image,
+      detail: props.detail,
+      gname:props.gName
+    });
+    console.log(PlayCtx);
+  };
+  let imAddress;
+  if(props.image){
+   imAddress = `http://image.tmdb.org/t/p/w500/${props.image}`;
+  }
+  else{
+     imAddress=found;
+  }
+  return (
+    <SmallLayout>
+      <div className={classes.SingleBox} onClick={addHandler}>
+        <img src={imAddress} className={classes.batImg}  ></img>
+        <div className={classes.hiddenInfo}>
+          <HiddenDetails
+          gName={props.gName}
+            id={props.id}
+            name={props.name}
+            title={props.title}
+            detail={props.detail}
+            image={props.image}
+          />
+        </div>
+      </div>
+    </SmallLayout>
+  );
+};
+export default memo(LatestLayer);
