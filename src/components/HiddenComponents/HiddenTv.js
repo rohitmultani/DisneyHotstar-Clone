@@ -1,15 +1,20 @@
 import classes from '../../listItems/List.module.css';
-const HiddenTv=()=>{return(
+import {Link} from 'react-router-dom';
+import { memo } from "react";
+const Tv = [
+    {firstname : "Top Rated", lastname: "top_rated"},
+    {firstname : "Popular", lastname: "popular"},
+    {firstname : "On Air", lastname: "on_the_air"},
+    {firstname : "Live", lastname: "airing_today"}
+  ];
+const HiddenTv=()=>{
+    return(
     <ul className={classes.hiddenTv}>
-            <li>Other Shows</li>
-            <li>Hotstar Specials</li>
-            <li>Quix</li>
-            <li>Star Jhalsa</li>
-            <li>Star Plus</li>
-            <li>Star Vijay</li>
-            <li>Star Bharat</li>
-            <li>Asianet</li>
-            <li>more...</li>
+            {Tv.map((x)=>
+            <Link to={`/tv/${x.lastname}`} className={classes.link}>
+            <li>{x.firstname}</li>
+            </Link>
+            )}
         </ul>
 )};
-export default HiddenTv;
+export default memo(HiddenTv);
