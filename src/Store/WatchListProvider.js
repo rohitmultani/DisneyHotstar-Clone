@@ -1,11 +1,39 @@
 import WatchListContext from "./WatchList-context";
-import { useReducer } from "react"; 
+import { useReducer } from "react";
 const defaultWatchState = {
   movies: [],
 };
 const WatchReducer = (state, action) => {
   if (action.type === "ADD") {
-    const updatedMovies = state.movies.concat(action.movies);
+    const existingMovieIndex = state.movies.findIndex(
+      (movie) => movie.id === action.movies.id
+    );
+
+    let updatedMovies;
+    if (state.movies[existingMovieIndex]) {
+      console.log("existed");
+      //  const updatedMovie = [...existingMovie]
+      updatedMovies = [...state.movies];
+      // updatedMovies[existingMovieIndex]=updatedMovie;
+    } else {
+      console.log("not existed");
+      updatedMovies = state.movies.concat(action.movies);
+    }
+    return {
+      movies: updatedMovies,
+    };
+  }
+  if (action.type === "REMOVE") {
+    // const existingMovieIndex = state.items.findIndex((item)=>(
+    //   item.id===action.id
+    // )
+    // const existingMovie=state.movies[existingMovieIndex];
+    const updatedMovies = state.movies.filter(
+      (movie) => movie.id !== action.id
+    );
+
+    console.log(action.id);
+    console.log("ehllo");
     return {
       movies: updatedMovies,
     };
@@ -30,7 +58,9 @@ const WatchListProvider = (props) => {
     removeMovies: movieRemoveHandler,
   };
   return (
-    <WatchListContext.Provider value={watchListContext}>{props.children}</WatchListContext.Provider>
+    <WatchListContext.Provider value={watchListContext}>
+      {props.children}
+    </WatchListContext.Provider>
   );
 };
 export default WatchListProvider;
