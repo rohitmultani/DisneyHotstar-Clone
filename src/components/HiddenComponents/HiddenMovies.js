@@ -1,14 +1,21 @@
 import classes from '../../listItems/List.module.css';
-const HiddenMovies=()=>{return(
+import {Link} from 'react-router-dom';
+import { memo } from "react";
+const Movies = [
+    {firstname : "Top Rated", lastname: "top_rated"},
+    {firstname : "Popular", lastname: "popular"},
+    {firstname : "Latest", lastname: "latest"},
+    {firstname : "Upcoming", lastname: "upcoming"},
+    {firstname : "Now Playing", lastname: "now_playing"}
+  ];
+const HiddenMovies=()=>{
+    return(
     <ul className={classes.hiddenMovies }>
-            <li>Hindi</li>
-            <li>English</li>
-            <li>Bengali</li>
-            <li>Telugu</li>
-            <li>Malayalam</li>
-            <li>Tamil</li>
-            <li>Marathi</li>
-            <li>Kannada</li>
+        {Movies.map((x)=>
+            <Link to={`/movie/${x.lastname}`} className={classes.link}>
+            <li>{x.firstname}</li>
+            </Link>
+            )}
         </ul>
 )};
-export default HiddenMovies;
+export default memo(HiddenMovies);
