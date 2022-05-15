@@ -4,7 +4,6 @@ import { memo } from "react";
 const Movies = [
     {firstname : "Top Rated", lastname: "top_rated"},
     {firstname : "Popular", lastname: "popular"},
-    {firstname : "Latest", lastname: "latest"},
     {firstname : "Upcoming", lastname: "upcoming"},
     {firstname : "Now Playing", lastname: "now_playing"}
   ];
