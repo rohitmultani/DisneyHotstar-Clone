@@ -1,5 +1,7 @@
 import classes from '../NavBar.module.css';
-import {auth} from "../../Firebase"
+import {Link} from 'react-router-dom'
+import {auth} from "../../Firebase";
+import { memo } from "react";
 const HiddenProfile=(props)=>{
     const logout =()=>{
         auth.signOut();
@@ -8,9 +10,10 @@ const HiddenProfile=(props)=>{
 
     }
     return(<ul className={classes.hiddenProfile }>
-        <li>WatchList</li>
-        <li>My Account</li>
+      <li> <Link to="/WatchList" className={classes.Link}> WatchList     </Link></li>
+        <Link to="/profile" className={classes.Link}>
+        <li>My Account</li></Link>
         <li onClick={logout}>Logout</li>
     </ul>)
 };
-export default HiddenProfile;
+export default memo(HiddenProfile);
