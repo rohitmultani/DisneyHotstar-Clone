@@ -1,5 +1,6 @@
 import classes from '../Slider/LatestLayer.module.css'
-import { useRef } from 'react';
+import { useRef,memo} from 'react';
+import {Link} from 'react-router-dom';
 import {useContext} from 'react';
 import WatchListContext from '../../Store/WatchList-context';
 
@@ -10,26 +11,22 @@ const HiddenDetails=(props)=>{
     const ExplaneRef=useRef();
 
     const addHandler=(event)=>{
-
-        WatchCtx.addMovies({
-            // title:titleRef.current.value,
-            // Genre:GenreRef.current.value,
-            // Explane:ExplaneRef.current.value,
-            // amt:12   
+        WatchCtx.addMovies({  
             id:props.id,
             title:props.title,
-            image:props.image
+            name:props.name,
+            image:props.image,
+            detail:props.detail
         })
-        //   console.log(WatchCtx.movies.map((movies)=>{console.log("2")}))
     }   
     return(
         <div className={classes.detailss}>
-            <div className={classes.Title} ref={titleRef}>{props.title}</div>
-            <div className={classes.Genre}  ref={GenreRef}>Action</div>
+            <div className={classes.Title} ref={titleRef}>{props.title} {props.name}</div>
+            <div className={classes.Genre}  ref={GenreRef}>Vote Count : {props.gName}</div>
             <div className={classes.Explane}  ref={ExplaneRef}>{props.detail}</div>
-            <div className={classes.watchlist} onClick={addHandler}>+ ADD TO WATCHLIST</div>
+          <Link to ="/WatchList" className={classes.link}>  <div className={classes.watchlist} onClick={addHandler}>+ ADD TO WATCHLIST</div></Link>
         </div>
     );
 
 }
-export default HiddenDetails;
+export default memo(HiddenDetails);
