@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, memo, useCallback } from "react";
 import { Fragment } from "react";
 import classes from "./Search.module.css";
 import SearchNav from "./SearchNav";
@@ -9,14 +9,11 @@ const Search = (props) => {
   const [movies, setMovies] = useState([]);
   const [query, setQuery] = useState("");
   const [loaded, setLoaded] = useState(true);
-  useEffect(() => {
-    fetchMoviesHandler();
-  }, [query]);
   const queryHandler = (e) => {
     setQuery(e);
     console.log(query);
   };
-  function fetchMoviesHandler() {
+  const fetchMoviesHandler=useCallback(()=> {
     const newLocal = `https://api.themoviedb.org/3/search/movie?api_key=8936bfb1497ed6daf448de63b7b6cb7c&query=${query}&page=1`;
     fetch(newLocal)
       .then((response) => {
@@ -38,8 +35,11 @@ const Search = (props) => {
         });
         setMovies(transformedMovies);
       });
-  }
-  return (
+    },[query])
+    useEffect(() => {
+      fetchMoviesHandler();
+    }, [fetchMoviesHandler]);
+    return (
     <Fragment>
       <SearchNav search={queryHandler} />
       <div className={classes.movieItem}>

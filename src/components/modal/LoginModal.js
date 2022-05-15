@@ -21,6 +21,7 @@ const LoginModal = (props) => {
       return setLoggedIn(true);
     }
     setLoggedIn(false);
+    console.log(loggedIn)
   });
   const phoneHandler = (value, num) => {
     // props.modalOpen(value)
@@ -42,7 +43,7 @@ const LoginModal = (props) => {
   };
   const userPhone = (value) => {
     setPhone(value);
-    console.log(value);
+    console.log(phone);
     console.log("check");
   };
   const lastDigits = (value) => {
@@ -51,6 +52,7 @@ const LoginModal = (props) => {
   };
   const profileHandler = (name) => {
     setprofname(name);
+    console.log(profName)
   };
   return (
     <ModalBar>

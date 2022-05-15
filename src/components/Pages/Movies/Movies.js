@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, memo, useCallback } from "react";
 import { Fragment } from "react";
 import classes from "../Search/Search.module.css";
 import { Link, useParams } from "react-router-dom";
@@ -8,22 +8,19 @@ import NavBar from "../../NavBar";
 const Movie = (props) => {
   const params = useParams();
   const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    fetchMoviesHandler();
-  }, [params.any]);
-
-  function fetchMoviesHandler() {
+  
+  const fetchMoviesHandler=useCallback(() =>  {
     console.log(params.any);
     const newLocal = `https://api.themoviedb.org/3/movie/${params.any}?api_key=8936bfb1497ed6daf448de63b7b6cb7c`;
     fetch(newLocal)
-      .then((response) => {
+    .then((response) => {
         console.log(response);
         return response.json();
       })
       .then((data) => {
         const transformedMovies = data.results.map((movieData) => {
           console.log(movieData);
-
+          
           return {
             id: movieData.id,
             title: movieData.title,
@@ -34,8 +31,11 @@ const Movie = (props) => {
         });
         setMovies(transformedMovies);
       });
-  }
-  return (
+    },[params.any])
+    useEffect(() => {
+      fetchMoviesHandler();
+    }, [fetchMoviesHandler]);
+    return (
     <Fragment>
       <NavBar />
       <div className={classes.Latest}>{params.any}</div>
