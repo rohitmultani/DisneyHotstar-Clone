@@ -1,6 +1,6 @@
-import React, { Fragment, useState,useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import firebase from "firebase/app";
-
+import { memo } from "react";
 import cancel from "../../Images/cancel.svg";
 import arrow from "../../Images/arrow.svg";
 import classes from "./LoginModal.module.css";
@@ -8,14 +8,14 @@ const PhoneModal = (props) => {
   const [disable, setDisable] = useState(true);
   const [phoneNum, setPhoneNum] = useState();
   const [last4, setLast4] = useState();
-  const [load,setLoad]=useState(false);
+  const [load, setLoad] = useState(false);
   const setUpRecaptcha = () => {
-      setLoad(true)
+    setLoad(true);
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("sign", {
       size: "invisible",
       callback: (response) => {
         console.log("recapta");
-        setLoad(false)
+        setLoad(false);
         props.next(false);
         onSignInSubmit();
       },
@@ -26,7 +26,7 @@ const PhoneModal = (props) => {
   const onSignInSubmit = (event) => {
     event.preventDefault();
     setUpRecaptcha();
-    props.digitLast(last4)
+    props.digitLast(last4);
     const appVerifier = window.recaptchaVerifier;
 
     firebase
@@ -34,30 +34,17 @@ const PhoneModal = (props) => {
       .signInWithPhoneNumber(phoneNum, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-      //  const code =window.prompt("enter otp");
-      //   console.log(code)
-      //   confirmationResult
-      //     .confirm(code)
-          // .then((result) => {
-          //   const user = result.user;
-          //   props.modalOpen(false);
-          //   console.log("ok");
-          //   console.log(user.phoneNumber);
-          //  })
-          // .catch((error) => {
-          //   console.log("not");
-          // });
       })
       .catch((error) => {
         console.log("not sent");
       });
   };
   const checkHandler = (event) => {
-    const mobNum = "+91"+event.target.value;
-    const shrinkNum=mobNum.slice(9,13)
+    const mobNum = "+91" + event.target.value;
+    const shrinkNum = mobNum.slice(9, 13);
     setLast4(shrinkNum);
     setPhoneNum(mobNum);
-    if (event.target.value=== "") {
+    if (event.target.value === "") {
       props.check(false);
     } else if (mobNum.length === 13) setDisable(false);
     else {
@@ -97,10 +84,8 @@ const PhoneModal = (props) => {
         className={classes.btn}
         onClick={onSignInSubmit}
         disabled={disable}
-        // onSubmit={onSignInSubmit}
       >
-  
-        {!load?<span>CONTINUE</span>:<span>Sending OTP</span>}
+        {!load ? <span>CONTINUE</span> : <span>Sending OTP</span>}
       </button>
       <div className={classes.description} id="description">
         By Proceeding you agree to the
@@ -110,4 +95,4 @@ const PhoneModal = (props) => {
     </Fragment>
   );
 };
-export default PhoneModal;
+export default memo(PhoneModal);
