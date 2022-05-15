@@ -98,6 +98,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt1}
           onChange={(e) => changeHandler("otp1", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
           autoFocus
         ></input>
@@ -107,6 +108,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt2}
           onChange={(e) => changeHandler("otp2", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
         ></input>
         <input
@@ -115,6 +117,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt3}
           onChange={(e) => changeHandler("otp3", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
         ></input>
         <input
@@ -123,6 +126,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt4}
           onChange={(e) => changeHandler("otp4", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
         ></input>
         <input
@@ -131,6 +135,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt5}
           onChange={(e) => changeHandler("otp5", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
         ></input>
         <input
@@ -139,6 +144,7 @@ const Otp = (props) => {
           maxLength="1"
           ref={otp.current.opt6}
           onChange={(e) => changeHandler("otp6", e)}
+          onTouchStartCapture={(e)=>inputfocus(e)}
           onKeyUp={(e) => inputfocus(e)}
         ></input>
       </div>
