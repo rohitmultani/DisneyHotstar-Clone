@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/DisneyHotstar-Clone/static/css/main.3d06b4a7.css",
-    "main.js": "/DisneyHotstar-Clone/static/js/main.5cbe6e73.js",
+    "main.js": "/DisneyHotstar-Clone/static/js/main.d621553d.js",
     "static/media/batman.webp": "/DisneyHotstar-Clone/static/media/batman.9b34c012699ff1c0ccc9.webp",
     "static/media/Disney (2).svg": "/DisneyHotstar-Clone/static/media/Disney (2).c2c626c4e97895eb3eba9dcfb04a5ca0.svg",
     "static/media/slick.svg": "/DisneyHotstar-Clone/static/media/slick.2630a3e3eab21c607e21.svg",
@@ -20,10 +20,10 @@
     "static/media/Linkedln.svg": "/DisneyHotstar-Clone/static/media/Linkedln.f2d4f5fe7ace9fd73b2ca293b0d53903.svg",
     "static/media/menu.svg": "/DisneyHotstar-Clone/static/media/menu.78b184dbeaf6336e31874f034d472c51.svg",
     "main.3d06b4a7.css.map": "/DisneyHotstar-Clone/static/css/main.3d06b4a7.css.map",
-    "main.5cbe6e73.js.map": "/DisneyHotstar-Clone/static/js/main.5cbe6e73.js.map"
+    "main.d621553d.js.map": "/DisneyHotstar-Clone/static/js/main.d621553d.js.map"
   },
   "entrypoints": [
     "static/css/main.3d06b4a7.css",
-    "static/js/main.5cbe6e73.js"
+    "static/js/main.d621553d.js"
   ]
 }
