@@ -1,3 +1,9 @@
 .slide{
-    z-index: -20;
+    z-index: 0;
+    height: 70vh;
+    margin-top:20px;
+}
+.link{
+    text-decoration: none;
+    color:white;
 }
