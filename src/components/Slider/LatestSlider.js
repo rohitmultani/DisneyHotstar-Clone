@@ -1,7 +1,8 @@
 import LatestLayer from "./LatestLayer";
 import classes from "./LatestSlider.module.css";
 import Slider from "react-slick";
-import { Fragment } from "react";
+import { memo } from "react";
+import { Link } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 function SampleNextArrow(props) {
@@ -46,21 +47,20 @@ function SamplePrevArrow2(props) {
 }
 
 const LatestSlider = (props) => {
-  const checkHandler=()=>{
-    console.log(props.movies)
-    // console.log("2")
-  }
+  const checkHandler = () => {
+    console.log(props.movies);
+  };
   var settings = {
     dots: false,
     infinite: false,
     speed: 300,
-    slidesToShow: 8,
+    slidesToShow: 8.2,
     slidesToScroll: 8,
     swipeToSlide: true,
     cssEase: "linear",
     nextArrow: <SampleNextArrow2 />,
     prevArrow: <SamplePrevArrow2 />,
-  
+
     responsive: [
       {
         breakpoint: 720,
@@ -78,25 +78,26 @@ const LatestSlider = (props) => {
 
   return (
     <div className={classes.LatestBox}>
-      <div className={classes.Latest} onClick={checkHandler}>Latest & Trending</div>
+      <div className={classes.Latest} onClick={checkHandler}>
+        {props.heading}
+      </div>
       <Slider {...settings} className={classes.Layer2}>
-      
-
-        {props.movies.map((movie)=>(
-           <div key={movie.id}>
-           <LatestLayer
-           id={movie.id}
-          //  key={movie.id}
-           title={movie.title}
-           image={movie.image}
-           detail={movie.detail}/>
-          
-         </div>
+        {props.movies.map((movie) => (
+          <div key={movie.id}>
+            <Link to={`/Play/${movie.id}`} className={classes.link}>
+              <LatestLayer
+                id={movie.id}
+                gName={movie.vote}
+                name={movie.name}
+                title={movie.title}
+                image={movie.image}
+                detail={movie.detail}
+              />
+            </Link>
+          </div>
         ))}
-        
-      
       </Slider>
-    </div>
+     </div>
   );
 };
-export default LatestSlider;
+export default memo(LatestSlider);
