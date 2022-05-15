@@ -1,4 +1,5 @@
-import classes from './SliderLayout.module.css'
+import classes from './SliderLayout.module.css';
+import { memo } from "react";
 const SliderLayout=(props)=>{
     return(
         <div className={classes.SliderLayout}>
@@ -6,4 +7,4 @@ const SliderLayout=(props)=>{
         </div>
     )
 };
-export default SliderLayout;
+export default memo(SliderLayout);

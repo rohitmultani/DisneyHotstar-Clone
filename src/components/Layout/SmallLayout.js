@@ -1,4 +1,5 @@
 import classes from './SmallLayout.module.css'
+import { memo } from "react";
 const SmallLayout=(props)=>{
     return(
        <div className={classes.smallLayout}>
@@ -7,4 +8,4 @@ const SmallLayout=(props)=>{
      );
 
 }
-export default SmallLayout;
+export default memo(SmallLayout);
