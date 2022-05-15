@@ -31,7 +31,7 @@ const Footer =()=>{
             target="_blank"
             rel="noreferrer"
           >
-                            <img src={Github}></img>
+                            <img src={Github} alt="github"/>
                             </a>
                         </div>
                         <div>
@@ -40,7 +40,7 @@ const Footer =()=>{
             target="_blank"
             rel="noreferrer"
           >
-                        <img src={Twitter}></img>
+                        <img src={Twitter} alt="twitter"/>
                         </a>
                         </div>
 
@@ -50,7 +50,7 @@ const Footer =()=>{
             target="_blank"
             rel="noreferrer"
           >
-                        <img src={insta}></img>
+                        <img src={insta} alt="insta"/> 
                         </a>
                         </div>
                         <div>
@@ -59,7 +59,7 @@ const Footer =()=>{
             target="_blank"
             rel="noreferrer"
           >
-                        <img src={Linkedln}></img>
+                        <img src={Linkedln} alt="linkedln"/>
                         </a>
                         </div>
                     </div>

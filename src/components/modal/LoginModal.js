@@ -1,10 +1,10 @@
-import { auth, provider } from "../../Firebase";
+import { auth } from "../../Firebase";
 import React, { useState, useRef, memo } from "react";
 import InitialModal from "./InitialModal";
 import ModalBar from "./ModalBar";
 import PhoneModal from "./PhoneModal";
 import Otp from "./Otp";
-import Welcome from "./Welcome";
+
 
 const LoginModal = (props) => {
   const [status, setStatus] = useState(false);

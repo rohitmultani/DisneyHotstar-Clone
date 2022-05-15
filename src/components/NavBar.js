@@ -53,7 +53,7 @@ const NavBar = () => {
                 src={search}
                 alt="search"
                 className={classes.searchIcon}
-              ></img>
+              />
             </Link>
           </form>
         </li>

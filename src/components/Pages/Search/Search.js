@@ -1,5 +1,4 @@
 import React, { useState, useEffect, memo } from "react";
-import LatestSlider from "../../Slider/LatestSlider";
 import { Fragment } from "react";
 import classes from "./Search.module.css";
 import SearchNav from "./SearchNav";
@@ -62,7 +61,7 @@ const Search = (props) => {
         ) : (
           <div className={classes.found}>
             Not Found
-            <img src={sadFace}></img>
+            <img src={sadFace} alt="sad face"/>
           </div>
         )}
       </div>

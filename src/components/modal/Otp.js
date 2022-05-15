@@ -1,6 +1,5 @@
-import React, { Fragment, useState, useEffect, useRef, memo } from "react";
+import React, { Fragment, useState, useRef, memo } from "react";
 import cancel from "../../Images/cancel.svg";
-import firebase from "firebase/app";
 import arrow from "../../Images/arrow.svg";
 import classes from "./LoginModal.module.css";
 const Otp = (props) => {
@@ -82,12 +81,12 @@ const Otp = (props) => {
   return (
     <Fragment>
       <div className={classes.imagesState}>
-        <img src={arrow} alt="prevState" onClick={() => props.prev(true)}></img>
+        <img src={arrow} alt="prevState" onClick={() => props.prev(true)}/>
         <img
           src={cancel}
           alt="cancel"
           onClick={() => props.modalOpen(false)}
-        ></img>
+        />
       </div>
       <div className={classes.modalText}>
         {`Enter the 6-digit code sent to +91******` + props.phoneNum}

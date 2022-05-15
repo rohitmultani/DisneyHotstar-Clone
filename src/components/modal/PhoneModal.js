@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import firebase from "firebase/app";
 import { memo } from "react";
 import cancel from "../../Images/cancel.svg";
@@ -57,14 +57,12 @@ const PhoneModal = (props) => {
   const cancelHandler = () => {
     props.modalOpen(false);
   };
-  const otpGenerator = () => {
-    props.next(false);
-  };
+ 
   return (
     <Fragment>
       <div className={classes.imagesState}>
-        <img src={arrow} alt="prevState" onClick={prevHandler}></img>
-        <img src={cancel} alt="cancel" onClick={cancelHandler}></img>
+        <img src={arrow} alt="prevState" onClick={prevHandler}/>
+        <img src={cancel} alt="cancel" onClick={cancelHandler}/>
       </div>
       <div className={classes.modalText}>Continue using Phone</div>
       <div className={classes.modalPhone}>

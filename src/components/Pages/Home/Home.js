@@ -11,7 +11,6 @@ const Home = (props) => {
   const [topMovies, setTopMovies] = useState([]);
   const [todayMovies, setTodayMovies] = useState([]);
   const [trendMovies, setTrendMovies] = useState([]);
-  const [genre, setGenre] = useState([]);
   useEffect(() => {
     fetchMoviesHandler();
   }, []);

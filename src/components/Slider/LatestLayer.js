@@ -27,7 +27,7 @@ const LatestLayer = (props) => {
   return (
     <SmallLayout>
       <div className={classes.SingleBox} onClick={addHandler}>
-        <img src={imAddress} className={classes.batImg}  ></img>
+        <img src={imAddress} className={classes.batImg} alt="not available" />
         <div className={classes.hiddenInfo}>
           <HiddenDetails
           gName={props.gName}

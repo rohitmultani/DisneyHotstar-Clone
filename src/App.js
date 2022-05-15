@@ -1,13 +1,11 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState, useEffect } from "react";
+import {  Routes, Route } from "react-router-dom";
 import Channel from "./components/Pages/Channel/Channel";
 import WatchList from "./components/Pages/WatchList/WatchList";
 import WatchlistProvider from "./Store/WatchListProvider";
 import Home from "./components/Pages/Home/Home";
 import Play from "./components/Pages/Play/Play";
 import PlayListProvider from "./Store/PlayListProvider";
-import YoutubePlay from "./components/Pages/YoutubePlay/YoutubePlay";
 import Search from "./components/Pages/Search/Search";
 import Welcome from "./components/modal/Welcome";
 import Tv from "./components/Pages/Tv/Tv";

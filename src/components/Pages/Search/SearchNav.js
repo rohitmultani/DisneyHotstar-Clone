@@ -1,6 +1,5 @@
 import classes from './Search.module.css';
 import disney from "../../../Images/Disney (2).svg";
-import search from "../../../Images/search.svg";
 import {memo} from 'react'
 import { Link } from 'react-router-dom';
 const SearchNav=(props)=>{

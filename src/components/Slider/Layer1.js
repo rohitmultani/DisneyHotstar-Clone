@@ -24,7 +24,7 @@ const Layer1 = (props) => {
           <div className={classes.description}>{props.detail}</div>
         </div>
 
-        <img src={imAddress} className={classes.img}></img>
+        <img src={imAddress} className={classes.img} alt="not available"/>
       </div>
     </SliderLayout>
   );
