@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/DisneyHotstar-Clone/static/css/main.3d06b4a7.css",
+    "main.js": "/DisneyHotstar-Clone/static/js/main.5cbe6e73.js",
+    "static/media/batman.webp": "/DisneyHotstar-Clone/static/media/batman.9b34c012699ff1c0ccc9.webp",
+    "static/media/Disney (2).svg": "/DisneyHotstar-Clone/static/media/Disney (2).c2c626c4e97895eb3eba9dcfb04a5ca0.svg",
+    "static/media/slick.svg": "/DisneyHotstar-Clone/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/DisneyHotstar-Clone/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/DisneyHotstar-Clone/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/DisneyHotstar-Clone/static/media/slick.295183786cd8a1389865.woff",
+    "static/media/channel.svg": "/DisneyHotstar-Clone/static/media/channel.834266519e26ac28a1459e03842f21e0.svg",
+    "static/media/cancel.svg": "/DisneyHotstar-Clone/static/media/cancel.35a78d1202b4971adfb07e761b0e6846.svg",
+    "static/media/arrow.svg": "/DisneyHotstar-Clone/static/media/arrow.bdb463999f79bbb65134f9857c628206.svg",
+    "static/media/sad.svg": "/DisneyHotstar-Clone/static/media/sad.b2f3b8138813104b6eb13df5bd51c3fe.svg",
+    "static/media/Github.svg": "/DisneyHotstar-Clone/static/media/Github.ca36b2a60afcda93d7424127e2725154.svg",
+    "index.html": "/DisneyHotstar-Clone/index.html",
+    "static/media/twitter.svg": "/DisneyHotstar-Clone/static/media/twitter.fb6a510a4f2c51fbe2847ff4e9ce49c4.svg",
+    "static/media/Insta.svg": "/DisneyHotstar-Clone/static/media/Insta.0bb020db4028c34feb2a156baa07143b.svg",
+    "static/media/search.svg": "/DisneyHotstar-Clone/static/media/search.b06eb1c967764ea01bc22e8fa4328aae.svg",
+    "static/media/Linkedln.svg": "/DisneyHotstar-Clone/static/media/Linkedln.f2d4f5fe7ace9fd73b2ca293b0d53903.svg",
+    "static/media/menu.svg": "/DisneyHotstar-Clone/static/media/menu.78b184dbeaf6336e31874f034d472c51.svg",
+    "main.3d06b4a7.css.map": "/DisneyHotstar-Clone/static/css/main.3d06b4a7.css.map",
+    "main.5cbe6e73.js.map": "/DisneyHotstar-Clone/static/js/main.5cbe6e73.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3d06b4a7.css",
+    "static/js/main.5cbe6e73.js"
+  ]
+}
