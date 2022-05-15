@@ -1,4 +1,5 @@
-import classes from './BackDrop.module.css'
+import classes from './BackDrop.module.css';
+import { memo } from "react";
 const BackDrop=(props)=>{
     return(
         <div className={classes.backdrop}  onClick={() => {
@@ -8,4 +9,4 @@ const BackDrop=(props)=>{
         </div>
     );
 };
-export default BackDrop;
+export default memo(BackDrop);
