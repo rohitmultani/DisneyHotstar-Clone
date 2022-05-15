@@ -1,4 +1,5 @@
-import classes from './ModalBar.module.css'
+import classes from './ModalBar.module.css';
+import { memo } from "react";
 const ModalBar=(props)=>{
     return(
         <div className={classes.modalBar}>
@@ -6,4 +7,4 @@ const ModalBar=(props)=>{
         </div>
     )
 };
-export default ModalBar;
+export default memo(ModalBar);
