@@ -66,7 +66,7 @@ const LatestSlider = (props) => {
         breakpoint: 720,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: false,
           nextArrow: <SampleNextArrow />,
