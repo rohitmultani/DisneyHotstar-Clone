@@ -1,0 +1,34 @@
+.footer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  font-size: 14px;
+  height: 20vh;
+}
+.leftFooter1 {
+  display: flex;
+  flex-wrap: wrap;
+}
+.leftFooter1 div {
+  width: 90px;
+  text-align: center;
+}
+.leftFooter2 {
+  margin: 2%;
+  text-align: center;
+}
+.rightFooter1 {
+  font-size: 16px;
+}
+.connect {
+  display: flex;
+}
+.connect div {
+  margin: 2%;
+}
+@media screen and (min-width: 320px) and (max-width: 720px) {
+  .leftFooter1 div {
+    margin: 2%;
+  }
+}
