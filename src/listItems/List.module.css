@@ -12,11 +12,12 @@
 .hiddenTv{
     display:none;    
     position: absolute;
-    top:10vh;
+    top:60px;
     left:16.5vw;
     font-size: 18px;
     background-color:#131c2e;
     z-index: 1;
+    width: 150px;
     border-radius: 10px; 
  box-shadow: 1px 1px 1px black;
  padding:0px;
@@ -25,15 +26,19 @@
     display: block;
 
 }
+.link{
+    text-decoration: none;
+    color:white;
+}
 .hiddenMovies{
     display:none;
     position: absolute;
-    top:10vh;
+    top:60px;
     left:23vw;
     font-size: 18px;
     background-color:#131c2e;
     z-index: 1;
-    width: max-content;  
+    width: 150px;  
     border-radius: 10px;
     box-shadow: 1px 1px 1px black;
     padding:0px;
@@ -46,12 +51,12 @@
 .hiddenSports{
     display:none;
     position: absolute;
-    top:10vh;
+    top:60px;
     left:29vw;
     font-size: 18px;
     background-color:#131c2e;
     z-index: 1;
-    width: max-content;
+    width: 150px;
     border-radius: 10px;
     box-shadow: 1px 1px 1px black;
     padding:0px;
@@ -66,7 +71,7 @@
 }
 .hiddenMovies li:hover,.hiddenSports li:hover,.hiddenTv li:hover{
     background-color: black;
-    /* padding-bottom:10%; */
+    font-weight: 700;
 }
 
 @media screen and (min-width: 320px) and (max-width:780px) {
