@@ -92,12 +92,14 @@ const LatestSlider = (props) => {
                 title={movie.title}
                 image={movie.image}
                 detail={movie.detail}
+                gid={movie.gid}
+                type={movie.type}
               />
             </Link>
           </div>
         ))}
       </Slider>
-     </div>
+    </div>
   );
 };
 export default memo(LatestSlider);

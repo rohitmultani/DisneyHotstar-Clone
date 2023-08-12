@@ -8,6 +8,7 @@ import WatchListContext from "../../../Store/WatchList-context";
 
 const WatchList = (props) => {
   const WatchCtx = useContext(WatchListContext);
+  console.log(WatchCtx.movies);
   const movieAddHandler = (movies) => {};
   const movieRemoveHandler = (id) => {
     WatchCtx.removeMovies(id);
@@ -16,7 +17,7 @@ const WatchList = (props) => {
   const WatchItems = (
     <ul className={classes.containerList}>
       {WatchCtx.movies.map((item) => (
-        <Link to={`/Play/${item.id}`}>
+        <Link to={`/Play/${item.id}`} className={classes.link}>
           <Design2
             id={item.id}
             key={item.id}
@@ -30,6 +31,11 @@ const WatchList = (props) => {
           />
         </Link>
       ))}
+      {WatchCtx.movies.length === 0 ? (
+        <div className={classes.empty}>Nothing here to display</div>
+      ) : (
+        <></>
+      )}
     </ul>
   );
 

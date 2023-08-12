@@ -17,8 +17,6 @@ const Channel = () => {
       })
       .then((data) => {
         const transformedMovies = data.results.map((movieData) => {
-          console.log(movieData);
-
           return {
             id: movieData.provider_id,
             name: movieData.provider_name,

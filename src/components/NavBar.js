@@ -49,11 +49,7 @@ const NavBar = () => {
                 placeholder="Search"
                 className={classes.search}
               />
-              <img
-                src={search}
-                alt="search"
-                className={classes.searchIcon}
-              />
+              <img src={search} alt="search" className={classes.searchIcon} />
             </Link>
           </form>
         </li>

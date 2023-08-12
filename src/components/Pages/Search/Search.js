@@ -13,7 +13,7 @@ const Search = (props) => {
     setQuery(e);
     console.log(query);
   };
-  const fetchMoviesHandler=useCallback(()=> {
+  const fetchMoviesHandler = useCallback(() => {
     const newLocal = `https://api.themoviedb.org/3/search/movie?api_key=8936bfb1497ed6daf448de63b7b6cb7c&query=${query}&page=1`;
     fetch(newLocal)
       .then((response) => {
@@ -30,16 +30,17 @@ const Search = (props) => {
             title: movieData.title,
             image: movieData.poster_path,
             detail: movieData.overview,
-            genres: movieData.genre_ids[0],
+            gid: movieData.genre_ids[0],
+            type: "movie",
           };
         });
         setMovies(transformedMovies);
       });
-    },[query])
-    useEffect(() => {
-      fetchMoviesHandler();
-    }, [fetchMoviesHandler]);
-    return (
+  }, [query]);
+  useEffect(() => {
+    fetchMoviesHandler();
+  }, [fetchMoviesHandler]);
+  return (
     <Fragment>
       <SearchNav search={queryHandler} />
       <div className={classes.movieItem}>
@@ -54,6 +55,8 @@ const Search = (props) => {
                   title={movie.title}
                   image={movie.image}
                   detail={movie.detail}
+                  gid={movie.gid}
+                  type={movie.type}
                 />
               </Link>
             </div>
@@ -61,7 +64,7 @@ const Search = (props) => {
         ) : (
           <div className={classes.found}>
             Not Found
-            <img src={sadFace} alt="sad face"/>
+            <img src={sadFace} alt="sad face" />
           </div>
         )}
       </div>

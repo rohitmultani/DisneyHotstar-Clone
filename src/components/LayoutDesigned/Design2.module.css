@@ -36,11 +36,26 @@
   max-width: 17vw;
   margin: 1%;
 }
-.watchlist {
+.link {
+  text-decoration: none;
+  color: white;
+}
+/* .watchlist {
   font-size: 13px;
   padding: 3%;
   color: white;
   text-align: center;
+} */
+.watchlist {
+  margin: 10%;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 3%;
+  color: black;
+  width: 70%;
+  text-align: center;
+  background-color: white;
 }
 .Title {
   font-weight: 700;

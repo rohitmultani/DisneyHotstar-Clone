@@ -62,7 +62,7 @@ const PhoneModal = (props) => {
     <Fragment>
       <div className={classes.imagesState}>
         <img src={arrow} alt="prevState" onClick={prevHandler}/>
-        <img src={cancel} alt="cancel" onClick={cancelHandler}/>
+        <img src={cancel} alt="cancel" onClick={cancelHandler}/ >
       </div>
       <div className={classes.modalText}>Continue using Phone</div>
       <div className={classes.modalPhone}>

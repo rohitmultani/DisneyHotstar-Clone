@@ -1,5 +1,5 @@
 import PlayListContext from "./PlayList-context";
-import { useReducer } from "react"; 
+import { useReducer } from "react";
 const defaultplayState = {
   movies: [],
 };
@@ -8,44 +8,41 @@ const playReducer = (state, action) => {
     // const existingMovieIndex = state.movies.findIndex((movie)=>(
     //   movie.id===action.movies.id
     // ))
-    
-    let updatedMovies;
-    if(state.movies.length>0){
-  
-      console.log(state.movies.length)
-    //  const updatedMovie = [...existingMovie]
-      state.movies.pop()
-      updatedMovies = state.movies.concat(action.movies);
-    // updatedMovies[existingMovieIndex]=updatedMovie;
-    }
 
-      else{
-        console.log("not existed")
-       updatedMovies = state.movies.concat(action.movies);
+    let updatedMovies;
+    if (state.movies.length > 0) {
+      // console.log(state.movies.length)
+      //  const updatedMovie = [...existingMovie]
+      state.movies.pop();
+      updatedMovies = state.movies.concat(action.movies);
+      // updatedMovies[existingMovieIndex]=updatedMovie;
+    } else {
+      // console.log("not existed")
+      updatedMovies = state.movies.concat(action.movies);
     }
     return {
       movies: updatedMovies,
     };
   }
-  if(action.type==='REMOVE')
-  {
+  if (action.type === "REMOVE") {
     // const existingMovieIndex = state.items.findIndex((item)=>(
     //   item.id===action.id
     // )
     // const existingMovie=state.movies[existingMovieIndex];
-    const updatedMovies=state.movies.filter(movie=>movie.id!==action.id)
+    const updatedMovies = state.movies.filter(
+      (movie) => movie.id !== action.id
+    );
 
-    console.log(action.id)
-    console.log("ehllo")
+    // console.log(action.id)
+    // console.log("ehllo")
     return {
-      movies:updatedMovies
-    }
+      movies: updatedMovies,
+    };
   }
   return defaultplayState;
-
 };
 const PlayListProvider = (props) => {
-const [playState, dispatchplayAction] = useReducer(
+  const [playState, dispatchplayAction] = useReducer(
     playReducer,
     defaultplayState
   );
@@ -62,7 +59,9 @@ const [playState, dispatchplayAction] = useReducer(
     removeMovies: movieRemoveHandler,
   };
   return (
-    <PlayListContext.Provider value={playListContext}>{props.children}</PlayListContext.Provider>
+    <PlayListContext.Provider value={playListContext}>
+      {props.children}
+    </PlayListContext.Provider>
   );
 };
 export default PlayListProvider;

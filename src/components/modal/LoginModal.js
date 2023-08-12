@@ -5,7 +5,6 @@ import ModalBar from "./ModalBar";
 import PhoneModal from "./PhoneModal";
 import Otp from "./Otp";
 
-
 const LoginModal = (props) => {
   const [status, setStatus] = useState(false);
   const [newState, setNewState] = useState(true);
@@ -21,7 +20,6 @@ const LoginModal = (props) => {
       return setLoggedIn(true);
     }
     setLoggedIn(false);
-    console.log(loggedIn)
   });
   const phoneHandler = (value, num) => {
     // props.modalOpen(value)
@@ -39,20 +37,16 @@ const LoginModal = (props) => {
   };
   const passwordHandler = (pass) => {
     password.current = pass;
-    console.log("parent", password.current);
   };
   const userPhone = (value) => {
     setPhone(value);
     console.log(phone);
-    console.log("check");
   };
   const lastDigits = (value) => {
     setLast4(value);
-    console.log(value);
   };
   const profileHandler = (name) => {
     setprofname(name);
-    console.log(profName)
   };
   return (
     <ModalBar>

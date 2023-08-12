@@ -11,12 +11,10 @@ const WatchReducer = (state, action) => {
 
     let updatedMovies;
     if (state.movies[existingMovieIndex]) {
-      console.log("existed");
       //  const updatedMovie = [...existingMovie]
       updatedMovies = [...state.movies];
       // updatedMovies[existingMovieIndex]=updatedMovie;
     } else {
-      console.log("not existed");
       updatedMovies = state.movies.concat(action.movies);
     }
     return {
@@ -31,9 +29,6 @@ const WatchReducer = (state, action) => {
     const updatedMovies = state.movies.filter(
       (movie) => movie.id !== action.id
     );
-
-    console.log(action.id);
-    console.log("ehllo");
     return {
       movies: updatedMovies,
     };

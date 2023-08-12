@@ -27,7 +27,7 @@ const InitialModal = (props) => {
           props.modalOpen(false);
         }}
       >
-        <img src={cancel} alt="cancel"/>
+        <img src={cancel} alt="cancel" />
       </div>
       <div className={classes.modalText}>Login to continue</div>
       <div className={classes.modalSign} onClick={LoginHandler}>

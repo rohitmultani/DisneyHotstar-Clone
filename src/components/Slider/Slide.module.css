@@ -1,15 +1,14 @@
-.slide{
-    z-index: 0;
-    height: 70vh;
-    margin-top:20px;
+.slide {
+  z-index: 0;
+  height: 70vh;
+  margin-top: 20px;
 }
-.link{
-    text-decoration: none;
-    color:white;
+.link {
+  text-decoration: none;
+  color: white;
 }
-@media screen and (min-width:300px) and (max-width:720px) {
-    .slide{
-        height: 50vh;
-    }
-    
+@media screen and (min-width: 300px) and (max-width: 720px) {
+  .slide {
+    height: 50vh;
+  }
 }

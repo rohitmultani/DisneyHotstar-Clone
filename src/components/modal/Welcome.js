@@ -1,6 +1,6 @@
 import classes from "./LoginModal.module.css";
 import { Fragment, useEffect, useState, memo } from "react";
-import { auth} from "../../Firebase";
+import { auth } from "../../Firebase";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar";
 const Welcome = (props) => {
@@ -19,11 +19,10 @@ const Welcome = (props) => {
 
     if (user !== null) {
       user.providerData.forEach((profile) => {
-     
-          setProfile(profile.displayName);
-          setEmail(profile.email);
-          setPhone(profile.phoneNumber);
-          setImage(profile.photoURL);
+        setProfile(profile.displayName);
+        setEmail(profile.email);
+        setPhone(profile.phoneNumber);
+        setImage(profile.photoURL);
       });
     }
   }
@@ -41,12 +40,10 @@ const Welcome = (props) => {
         </div>
       ) : (
         <div>
-          <div className={classes.welcome}>
-            Welcome
-          </div>
+          <div className={classes.welcome}>Welcome</div>
           <div className={classes.phone}>{phone}</div>
           <div className={classes.profileImage}>
-            <img src={Image} alt="not available"/>
+            <img src={Image} alt="not available" />
           </div>
           <div className={classes.phone}>{profile}</div>
           <div className={classes.email}>{email}</div>

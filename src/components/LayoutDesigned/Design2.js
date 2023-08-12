@@ -18,7 +18,7 @@ const Design2 = (props) => {
   return (
     <LandScape>
       <div className={classes.SingleBox} onClick={addHandler}>
-        <img src={imAddress} className={classes.im} alt="alt img"/>
+        <img src={imAddress} className={classes.im} alt="alt img" />
         <div className={classes.hiddenInfo}>
           <HiddenAbout
             title={props.title}

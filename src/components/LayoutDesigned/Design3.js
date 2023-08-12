@@ -33,7 +33,7 @@ const Design3 = (props) => {
   return (
     <BigLayout>
       <div className={classes.SingleBox}>
-        <img src={imAddress} className={classes.im} alt="not available"/>
+        <img src={imAddress} className={classes.im} alt="not available" />
         <button className={classes.watchBtn} onClick={trailerHandler}>
           Watch Trailer
         </button>
