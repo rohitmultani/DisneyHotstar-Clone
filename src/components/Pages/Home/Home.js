@@ -30,9 +30,7 @@ const Home = (props) => {
 
   const movieGenre = WatchCtx.movies[WatchCtx.movies.length - 1];
 
-  useEffect(() => {
-    recommendMoviesHandler();
-  }, [movieGenre]);
+ 
   function fetchMoviesHandler() {
     const newLocal =
       "https://api.themoviedb.org/3/movie/upcoming?api_key=8936bfb1497ed6daf448de63b7b6cb7c";
@@ -142,52 +140,57 @@ const Home = (props) => {
       });
   }
 
-  function recommendMoviesHandler() {
-    if (movieGenre) {
-      console.log(movieGenre.movieGenre);
-      const Local5 = `https://api.themoviedb.org/3/discover/movie?api_key=8936bfb1497ed6daf448de63b7b6cb7c&with_genres=${movieGenre.movieGenre}`;
-      fetch(Local5)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          const transformedMovies = data.results.map((movieData) => {
-            return {
-              id: movieData.id,
-              name: movieData.title,
-              image: movieData.poster_path,
-              detail: movieData.overview,
-              vote: movieData.vote_average,
-              gid: movieData.genre_ids[0],
-              type: "movie",
-            };
+  useEffect(() => {
+    function recommendMoviesHandler() {
+      if (movieGenre) {
+        console.log(movieGenre.movieGenre);
+        const Local5 = `https://api.themoviedb.org/3/discover/movie?api_key=8936bfb1497ed6daf448de63b7b6cb7c&with_genres=${movieGenre.movieGenre}`;
+        fetch(Local5)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            const transformedMovies = data.results.map((movieData) => {
+              return {
+                id: movieData.id,
+                name: movieData.title,
+                image: movieData.poster_path,
+                detail: movieData.overview,
+                vote: movieData.vote_average,
+                gid: movieData.genre_ids[0],
+                type: "movie",
+              };
+            });
+            setRecommendMovies(transformedMovies);
           });
-          setRecommendMovies(transformedMovies);
-        });
+      }
+  
+      if (movieGenre) {
+        const Local6 = `https://api.themoviedb.org/3/discover/tv?api_key=8936bfb1497ed6daf448de63b7b6cb7c&with_genres=${movieGenre.tvGenre}`;
+        fetch(Local6)
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            const transformedMovies = data.results.map((movieData) => {
+              return {
+                id: movieData.id,
+                name: movieData.title ? movieData.title : movieData.name,
+                image: movieData.poster_path,
+                detail: movieData.overview,
+                vote: movieData.vote_average,
+                gid: movieData.genre_ids[0],
+                type: "tv",
+              };
+            });
+            setRecommendTv(transformedMovies);
+          });
+      }
     }
+    recommendMoviesHandler();
+  }, [movieGenre]);
 
-    if (movieGenre) {
-      const Local6 = `https://api.themoviedb.org/3/discover/tv?api_key=8936bfb1497ed6daf448de63b7b6cb7c&with_genres=${movieGenre.tvGenre}`;
-      fetch(Local6)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          const transformedMovies = data.results.map((movieData) => {
-            return {
-              id: movieData.id,
-              name: movieData.title ? movieData.title : movieData.name,
-              image: movieData.poster_path,
-              detail: movieData.overview,
-              vote: movieData.vote_average,
-              gid: movieData.genre_ids[0],
-              type: "tv",
-            };
-          });
-          setRecommendTv(transformedMovies);
-        });
-    }
-  }
+  
 
   return (
     <Fragment>
